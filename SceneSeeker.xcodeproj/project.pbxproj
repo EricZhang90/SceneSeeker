@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2447639B1FA796C200FB49E6 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */; };
+		2447639D1FA79F8800FB49E6 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2447639C1FA79F8800FB49E6 /* Photo.swift */; };
+		2447639F1FA7B8AF00FB49E6 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2447639E1FA7B8AF00FB49E6 /* Scene.swift */; };
+		244763A11FA7BC4700FB49E6 /* UIImageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244763A01FA7BC4700FB49E6 /* UIImageManger.swift */; };
+		244763A31FA7DEF700FB49E6 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244763A21FA7DEF700FB49E6 /* RealmConfig.swift */; };
+		244763A51FA7E21100FB49E6 /* URL+filePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244763A41FA7E21100FB49E6 /* URL+filePath.swift */; };
+		24E3159E1FA3796400571F4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E3159D1FA3796400571F4C /* AppDelegate.swift */; };
+		24E315A01FA3796400571F4C /* SceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E3159F1FA3796400571F4C /* SceneViewController.swift */; };
+		24E315A31FA3796400571F4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E315A11FA3796400571F4C /* Main.storyboard */; };
+		24E315A81FA3796400571F4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24E315A71FA3796400571F4C /* Assets.xcassets */; };
+		24E315AB1FA3796400571F4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E315A91FA3796400571F4C /* LaunchScreen.storyboard */; };
+		24E315B61FA3895700571F4C /* Shapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E315B51FA3895700571F4C /* Shapable.swift */; };
+		24E315B81FA389FE00571F4C /* SceneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E315B71FA389FE00571F4C /* SceneButton.swift */; };
+		24E315BC1FA3948700571F4C /* ScenePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E315BB1FA3948700571F4C /* ScenePhotoView.swift */; };
+		24FFC7271FA7653300588ED9 /* MainPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFC7261FA7653300588ED9 /* MainPhotoView.swift */; };
+		24FFC72B1FA7814F00588ED9 /* UIAlertController+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFC72A1FA7814F00588ED9 /* UIAlertController+Shortcut.swift */; };
+		81364966A65CDDF4911D382D /* Pods_SceneSeeker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AD5F52EFC49D254E80447B /* Pods_SceneSeeker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		2447639C1FA79F8800FB49E6 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		2447639E1FA7B8AF00FB49E6 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		244763A01FA7BC4700FB49E6 /* UIImageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageManger.swift; sourceTree = "<group>"; };
+		244763A21FA7DEF700FB49E6 /* RealmConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
+		244763A41FA7E21100FB49E6 /* URL+filePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+filePath.swift"; sourceTree = "<group>"; };
+		24E3159A1FA3796400571F4C /* SceneSeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SceneSeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24E3159D1FA3796400571F4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		24E3159F1FA3796400571F4C /* SceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewController.swift; sourceTree = "<group>"; };
+		24E315A21FA3796400571F4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		24E315A71FA3796400571F4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24E315AA1FA3796400571F4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		24E315AC1FA3796400571F4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24E315B51FA3895700571F4C /* Shapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapable.swift; sourceTree = "<group>"; };
+		24E315B71FA389FE00571F4C /* SceneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneButton.swift; sourceTree = "<group>"; };
+		24E315BB1FA3948700571F4C /* ScenePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhotoView.swift; sourceTree = "<group>"; };
+		24FFC7261FA7653300588ED9 /* MainPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoView.swift; sourceTree = "<group>"; };
+		24FFC72A1FA7814F00588ED9 /* UIAlertController+Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Shortcut.swift"; sourceTree = "<group>"; };
+		38B8DC189D1E0AEBD9E212E8 /* Pods-SceneSeeker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SceneSeeker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SceneSeeker/Pods-SceneSeeker.debug.xcconfig"; sourceTree = "<group>"; };
+		9C6B5B1A510E3E6919AC20A2 /* Pods-SceneSeeker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SceneSeeker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SceneSeeker/Pods-SceneSeeker.release.xcconfig"; sourceTree = "<group>"; };
+		A5AD5F52EFC49D254E80447B /* Pods_SceneSeeker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SceneSeeker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24E315971FA3796400571F4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81364966A65CDDF4911D382D /* Pods_SceneSeeker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24E315911FA3796300571F4C = {
+			isa = PBXGroup;
+			children = (
+				24FFC72E1FA7831100588ED9 /* Helper */,
+				24E315B41FA384C600571F4C /* Model */,
+				24E315B31FA384BE00571F4C /* Controller */,
+				24E315B21FA384B500571F4C /* View */,
+				24E3159C1FA3796400571F4C /* SceneSeeker */,
+				24E3159B1FA3796400571F4C /* Products */,
+				CCC078062F6AD76B5CD6E3DA /* Pods */,
+				83376DE1044105C7A09FF5A2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		24E3159B1FA3796400571F4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24E3159A1FA3796400571F4C /* SceneSeeker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24E3159C1FA3796400571F4C /* SceneSeeker */ = {
+			isa = PBXGroup;
+			children = (
+				24E3159D1FA3796400571F4C /* AppDelegate.swift */,
+				24E315A11FA3796400571F4C /* Main.storyboard */,
+				24E315A71FA3796400571F4C /* Assets.xcassets */,
+				24E315A91FA3796400571F4C /* LaunchScreen.storyboard */,
+				24E315AC1FA3796400571F4C /* Info.plist */,
+			);
+			path = SceneSeeker;
+			sourceTree = "<group>";
+		};
+		24E315B21FA384B500571F4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24E315B51FA3895700571F4C /* Shapable.swift */,
+				24E315B71FA389FE00571F4C /* SceneButton.swift */,
+				24E315BB1FA3948700571F4C /* ScenePhotoView.swift */,
+				24FFC7261FA7653300588ED9 /* MainPhotoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		24E315B31FA384BE00571F4C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24E3159F1FA3796400571F4C /* SceneViewController.swift */,
+				2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24E315B41FA384C600571F4C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2447639C1FA79F8800FB49E6 /* Photo.swift */,
+				2447639E1FA7B8AF00FB49E6 /* Scene.swift */,
+				244763A21FA7DEF700FB49E6 /* RealmConfig.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24FFC72E1FA7831100588ED9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				24FFC72A1FA7814F00588ED9 /* UIAlertController+Shortcut.swift */,
+				244763A01FA7BC4700FB49E6 /* UIImageManger.swift */,
+				244763A41FA7E21100FB49E6 /* URL+filePath.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		83376DE1044105C7A09FF5A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5AD5F52EFC49D254E80447B /* Pods_SceneSeeker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCC078062F6AD76B5CD6E3DA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38B8DC189D1E0AEBD9E212E8 /* Pods-SceneSeeker.debug.xcconfig */,
+				9C6B5B1A510E3E6919AC20A2 /* Pods-SceneSeeker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24E315991FA3796400571F4C /* SceneSeeker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24E315AF1FA3796400571F4C /* Build configuration list for PBXNativeTarget "SceneSeeker" */;
+			buildPhases = (
+				558711413F8ADA5CEE885F17 /* [CP] Check Pods Manifest.lock */,
+				24E315961FA3796400571F4C /* Sources */,
+				24E315971FA3796400571F4C /* Frameworks */,
+				24E315981FA3796400571F4C /* Resources */,
+				0B7411CF8F33D7CFC2C13C52 /* [CP] Embed Pods Frameworks */,
+				831C733FC0D0E6BDF8780330 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SceneSeeker;
+			productName = SceneSeeker;
+			productReference = 24E3159A1FA3796400571F4C /* SceneSeeker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24E315921FA3796300571F4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "lei zhang";
+				TargetAttributes = {
+					24E315991FA3796400571F4C = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 24E315951FA3796300571F4C /* Build configuration list for PBXProject "SceneSeeker" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 24E315911FA3796300571F4C;
+			productRefGroup = 24E3159B1FA3796400571F4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24E315991FA3796400571F4C /* SceneSeeker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24E315981FA3796400571F4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E315AB1FA3796400571F4C /* LaunchScreen.storyboard in Resources */,
+				24E315A81FA3796400571F4C /* Assets.xcassets in Resources */,
+				24E315A31FA3796400571F4C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B7411CF8F33D7CFC2C13C52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SceneSeeker/Pods-SceneSeeker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SceneSeeker/Pods-SceneSeeker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		558711413F8ADA5CEE885F17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SceneSeeker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		831C733FC0D0E6BDF8780330 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SceneSeeker/Pods-SceneSeeker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24E315961FA3796400571F4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24E315A01FA3796400571F4C /* SceneViewController.swift in Sources */,
+				24E315B81FA389FE00571F4C /* SceneButton.swift in Sources */,
+				2447639F1FA7B8AF00FB49E6 /* Scene.swift in Sources */,
+				24FFC72B1FA7814F00588ED9 /* UIAlertController+Shortcut.swift in Sources */,
+				2447639D1FA79F8800FB49E6 /* Photo.swift in Sources */,
+				24E3159E1FA3796400571F4C /* AppDelegate.swift in Sources */,
+				2447639B1FA796C200FB49E6 /* PhotoCollectionViewController.swift in Sources */,
+				24E315B61FA3895700571F4C /* Shapable.swift in Sources */,
+				24E315BC1FA3948700571F4C /* ScenePhotoView.swift in Sources */,
+				24FFC7271FA7653300588ED9 /* MainPhotoView.swift in Sources */,
+				244763A11FA7BC4700FB49E6 /* UIImageManger.swift in Sources */,
+				244763A31FA7DEF700FB49E6 /* RealmConfig.swift in Sources */,
+				244763A51FA7E21100FB49E6 /* URL+filePath.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		24E315A11FA3796400571F4C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24E315A21FA3796400571F4C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		24E315A91FA3796400571F4C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24E315AA1FA3796400571F4C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		24E315AD1FA3796400571F4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		24E315AE1FA3796400571F4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		24E315B01FA3796400571F4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B8DC189D1E0AEBD9E212E8 /* Pods-SceneSeeker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8BE4Z949KV;
+				INFOPLIST_FILE = SceneSeeker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eric.SceneSeeker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		24E315B11FA3796400571F4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C6B5B1A510E3E6919AC20A2 /* Pods-SceneSeeker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8BE4Z949KV;
+				INFOPLIST_FILE = SceneSeeker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = eric.SceneSeeker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24E315951FA3796300571F4C /* Build configuration list for PBXProject "SceneSeeker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24E315AD1FA3796400571F4C /* Debug */,
+				24E315AE1FA3796400571F4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24E315AF1FA3796400571F4C /* Build configuration list for PBXNativeTarget "SceneSeeker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24E315B01FA3796400571F4C /* Debug */,
+				24E315B11FA3796400571F4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24E315921FA3796300571F4C /* Project object */;
+}
