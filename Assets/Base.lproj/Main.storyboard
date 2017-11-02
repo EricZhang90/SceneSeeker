@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,6 +96,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1333.5999999999999" y="185.75712143928038"/>
+        </scene>
+        <!--Analytis View Controller-->
+        <scene sceneID="2k4-xE-x22">
+            <objects>
+                <viewController storyboardIdentifier="analytisViewController" id="Ki6-aB-LD9" customClass="AnalytisViewController" customModule="SceneSeeker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5J3-Dc-Ept">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="HS9-mC-N8x">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9hr-Io-WHm">
+                                <rect key="frame" x="88" y="50" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ZCb-vt-LLy"/>
+                                    <constraint firstAttribute="height" constant="200" id="ux0-lf-xJC"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8vD-8b-j7x">
+                                <rect key="frame" x="10" y="300" width="355" height="357"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tagCell" id="7Xv-6z-KYl">
+                                        <rect key="frame" x="0.0" y="28" width="355" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Xv-6z-KYl" id="Pfo-6Y-gpe">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ki6-aB-LD9" id="p6n-dW-ENv"/>
+                                    <outlet property="delegate" destination="Ki6-aB-LD9" id="KJP-lW-Xy6"/>
+                                </connections>
+                            </tableView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qHJ-3p-zcm">
+                                <rect key="frame" x="86" y="274" width="203" height="2"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8vD-8b-j7x" firstAttribute="leading" secondItem="ryT-AH-gIV" secondAttribute="leading" constant="10" id="1i1-Bq-GJs"/>
+                            <constraint firstItem="qHJ-3p-zcm" firstAttribute="centerX" secondItem="5J3-Dc-Ept" secondAttribute="centerX" id="8rJ-TD-MiX"/>
+                            <constraint firstItem="HS9-mC-N8x" firstAttribute="leading" secondItem="ryT-AH-gIV" secondAttribute="leading" id="IUH-Tc-jVd"/>
+                            <constraint firstItem="ryT-AH-gIV" firstAttribute="bottom" secondItem="HS9-mC-N8x" secondAttribute="bottom" id="T4g-Xo-bdA"/>
+                            <constraint firstItem="qHJ-3p-zcm" firstAttribute="leading" secondItem="5J3-Dc-Ept" secondAttribute="leadingMargin" constant="70" id="VY8-uQ-Lfl"/>
+                            <constraint firstItem="9hr-Io-WHm" firstAttribute="top" secondItem="ryT-AH-gIV" secondAttribute="top" constant="30" id="Yrh-yu-r2l"/>
+                            <constraint firstItem="qHJ-3p-zcm" firstAttribute="top" secondItem="9hr-Io-WHm" secondAttribute="bottom" constant="24" id="ads-hZ-ti6"/>
+                            <constraint firstItem="8vD-8b-j7x" firstAttribute="top" secondItem="qHJ-3p-zcm" secondAttribute="bottom" constant="24" id="cXg-BQ-Sir"/>
+                            <constraint firstItem="ryT-AH-gIV" firstAttribute="trailing" secondItem="HS9-mC-N8x" secondAttribute="trailing" id="ebZ-aA-C54"/>
+                            <constraint firstItem="9hr-Io-WHm" firstAttribute="centerX" secondItem="5J3-Dc-Ept" secondAttribute="centerX" id="ff4-ob-fAc"/>
+                            <constraint firstItem="ryT-AH-gIV" firstAttribute="bottom" secondItem="8vD-8b-j7x" secondAttribute="bottom" constant="10" id="mRN-iL-URY"/>
+                            <constraint firstItem="8vD-8b-j7x" firstAttribute="top" secondItem="9hr-Io-WHm" secondAttribute="bottom" constant="50" id="mxU-Fv-WEp"/>
+                            <constraint firstItem="HS9-mC-N8x" firstAttribute="top" secondItem="ryT-AH-gIV" secondAttribute="top" id="owC-qm-2xh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qHJ-3p-zcm" secondAttribute="trailing" constant="70" id="pfc-Jq-sqs"/>
+                            <constraint firstItem="ryT-AH-gIV" firstAttribute="trailing" secondItem="8vD-8b-j7x" secondAttribute="trailing" constant="10" id="usj-ZB-vle"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ryT-AH-gIV"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoView" destination="9hr-Io-WHm" id="XqZ-Zm-3xF"/>
+                        <outlet property="progressView" destination="qHJ-3p-zcm" id="Tsp-rr-sM1"/>
+                        <outlet property="tagTableView" destination="8vD-8b-j7x" id="Qh4-sk-XRp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CrI-WJ-OKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146" y="176"/>
         </scene>
         <!--Detect-->
         <scene sceneID="XMD-Tb-gGT">

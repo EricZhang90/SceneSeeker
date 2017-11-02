@@ -12,11 +12,11 @@ class Photo: Object {
 
     convenience init(image: UIImage) {
         self.init()
-        self.mainPhotoPath = UIImageManger.saveImageInFileSystem(image: image)
+        self.imageUUID = image.saveInFileSystem()
     }
 
     // MARK: - persisted properties
-    @objc dynamic var mainPhotoPath: String!
+    @objc dynamic var imageUUID: String!
     @objc dynamic var date: Date = Date()
     @objc dynamic var isFav: Bool = false
     let scenes = List<Scene>()

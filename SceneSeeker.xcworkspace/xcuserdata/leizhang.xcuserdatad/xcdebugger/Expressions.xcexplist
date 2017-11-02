@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PhotoCollectionViewController.collectionView(_:cellForItemAt:):PhotoCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "photos[indexPath.row].mainPhotoPath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static UIImageManger.loadImageFromFileSystem(filePath:):UIImageManger.swift">
          <PersistentStrings>
             <PersistentString
@@ -14,10 +22,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static UIImageManger.saveImageInFileSystem(image:):UIImageManger.swift">
+         contextName = "PhotoCollectionViewController.collectionView(_:numberOfItemsInSection:):PhotoCollectionViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "print(fileURL.path)">
+               value = "photos.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIImage.init(uuid:):UIImageManger.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "imagesLocalPath.path">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

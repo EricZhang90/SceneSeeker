@@ -9,23 +9,20 @@
 import UIKit
 import RealmSwift
 
-private let reuseIdentifier = "photoCell"
-
 class PhotoCollectionViewController: UICollectionViewController {
 
+    fileprivate let reuseIdentifier = "photoCell"
+    
     fileprivate var photos: Results<Photo>!
-    fileprivate var realm = try! Realm(configuration: RealmConfig.main.configuration)
+    fileprivate var realm: Realm!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        realm = try! Realm()
         photos = realm.objects(Photo.self).sorted(byKeyPath: "date", ascending: true)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
+        
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +57,12 @@ class PhotoCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        cell.contentView.layer.contents = UIImage(contentsOfFile: photos[indexPath.row].mainPhotoPath)?.cgImage
-    
+        let imagePath = photos[indexPath.row].imageUUID!
+        
+        cell.layer.contents = UIImage(uuid: imagePath).cgImage
+        
+        //Debug.checkFilePermission(photos[indexPath.row].imageUUID)
+        
         return cell
     }
 

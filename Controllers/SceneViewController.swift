@@ -41,7 +41,7 @@ extension SceneViewController: UIImagePickerControllerDelegate {
                 
                 let error = "Camera is not available"
                 
-                UIAlertController.present(in: self, message: error, completion: nil)
+                self.alert(msg: error)
                 
                 return
             }
@@ -75,11 +75,18 @@ extension SceneViewController: UIImagePickerControllerDelegate {
             fatalError("couldn't load image from Photos")
         }
         
+        let photo = Photo(image: image)
         let realm = try! Realm()
         try! realm.write {
-            realm.add(Photo(image: image))
+            realm.add(photo)
         }
+        
+        let nextVC = storyboard?.instantiateViewController(withIdentifier: "analytisViewController") as! AnalytisViewController
+        nextVC.photo = photo
+        
+        navigationController?.pushViewController(nextVC, animated: true)
     }
+    
 }
 
 // MARK: - UINavigationControllerDelegate
