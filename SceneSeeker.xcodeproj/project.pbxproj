@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240D46261FABC79900B43195 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240D46251FABC79900B43195 /* CameraViewController.swift */; };
 		2425EF261FAA134F00DDEBF7 /* default_v1.realm in Resources */ = {isa = PBXBuildFile; fileRef = 2425EF251FAA134E00DDEBF7 /* default_v1.realm */; };
 		2425EF2B1FAA3E1200DDEBF7 /* NetworkingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2425EF2A1FAA3E1200DDEBF7 /* NetworkingHandler.swift */; };
 		2425EF2D1FAA452100DDEBF7 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2425EF2C1FAA452100DDEBF7 /* Errors.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		240D46251FABC79900B43195 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		2425EF251FAA134E00DDEBF7 /* default_v1.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default_v1.realm; sourceTree = "<group>"; };
 		2425EF2A1FAA3E1200DDEBF7 /* NetworkingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHandler.swift; sourceTree = "<group>"; };
 		2425EF2C1FAA452100DDEBF7 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				24E3159F1FA3796400571F4C /* SceneViewController.swift */,
 				2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */,
 				249477B81FA8F6AD009AAB66 /* AnalytisViewController.swift */,
+				240D46251FABC79900B43195 /* CameraViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				2425EF2D1FAA452100DDEBF7 /* Errors.swift in Sources */,
 				24E3159E1FA3796400571F4C /* AppDelegate.swift in Sources */,
 				2425EF2B1FAA3E1200DDEBF7 /* NetworkingHandler.swift in Sources */,
+				240D46261FABC79900B43195 /* CameraViewController.swift in Sources */,
 				249477BD1FA8FF1E009AAB66 /* Routers.swift in Sources */,
 				2447639B1FA796C200FB49E6 /* PhotoCollectionViewController.swift in Sources */,
 				24E315B61FA3895700571F4C /* Shapable.swift in Sources */,

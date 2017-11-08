@@ -25,8 +25,10 @@ class AnalytisViewController: UIViewController {
         tagTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         title = "Result"
+       
+        let image = UIImage(uuid: photo.imageUUID)
         
-        photoView.image = UIImage(uuid: photo.imageUUID)
+        photoView.image = image
     
         tagTableView.layer.cornerRadius = 10
         tagTableView.layer.borderWidth = 2
@@ -34,22 +36,27 @@ class AnalytisViewController: UIViewController {
         
         progressView.isHidden = false
         
-        let progress: NetworkingHanlder.Image.uploadProgress = {
-            [weak self] percent in
-            self?.progressView.setProgress(percent, animated: true)
-        }
+        let imageHandler = NetworkingHanlder.Image()
+        imageHandler.delegate = self
         
-        let finish: NetworkingHanlder.Image.uploadFinish = {
-            [weak self] tags in
-            
-            self?.progressView.isHidden = true
-            self?.tags = tags
-            self?.tagTableView.reloadData()
-        }
+        imageHandler.upload(image: image)
         
-        let image = UIImage(uuid: photo.imageUUID)
-        
-        NetworkingHanlder.Image.upload(image: image, progressCompletion: progress, completion: finish)
+//        let progress: NetworkingHanlder.Image.uploadProgress = {
+//            [weak self] percent in
+//            self?.progressView.setProgress(percent, animated: true)
+//        }
+//        
+//        let finish: NetworkingHanlder.Image.uploadFinish = {
+//            [weak self] tags in
+//
+//            self?.progressView.isHidden = true
+//            self?.tags = tags
+//            self?.tagTableView.reloadData()
+//        }
+//
+//        let image = UIImage(uuid: photo.imageUUID)
+//
+//        NetworkingHanlder.Image.upload(image: image, progressCompletion: progress, completion: finish)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +65,7 @@ class AnalytisViewController: UIViewController {
     }
 }
 
-// MARK: Table view delgate
+// MARK: Table view delegate
 extension AnalytisViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tags.count
@@ -72,6 +79,19 @@ extension AnalytisViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+}
+
+// MARK: Image process delegate
+extension AnalytisViewController: ImageProcessDelegate {
     
+    func uploadProcess(_ percent: Float) {
+        progressView.setProgress(percent, animated: true)
+    }
     
+    func uploadFinish(_ tags: [String]) {
+        
+        progressView.isHidden = true
+        self.tags = tags
+        tagTableView.reloadData()
+    }
 }

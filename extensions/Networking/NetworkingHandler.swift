@@ -16,22 +16,33 @@ class NetworkingHanlder {
     }
 }
 
+@objc protocol ImageProcessDelegate: NSObjectProtocol {
+    
+    @objc optional func uploadProcess(_ percent: Float)
+    func uploadFinish(_ tags: [String])
+}
+
+
 // MARK: Image download/upload
 extension NetworkingHanlder {
     
+    
+    
     class Image {
         
-        typealias uploadProgress = (_ percent: Float) -> Void
-        typealias uploadFinish = (_ tags: [String]) -> Void
-        typealias downloadTags = ([String]) -> Void
+        weak var delegate: ImageProcessDelegate?
+        //
+        //        typealias uploadProgress = (_ percent: Float) -> Void
+        //        typealias uploadFinish = (_ tags: [String]) -> Void
+                typealias downloadTags = ([String]) -> Void
         
-        class func upload(image: UIImage, progressCompletion: @escaping uploadProgress, completion: @escaping  uploadFinish) {
+     func upload(image: UIImage) {
             
             guard let imageData = UIImageJPEGRepresentation(image, 0.5) else {
                 print("Could not get JPEG representation of UIImage")
                 return
             }
-
+            
             Alamofire.upload(
                 multipartFormData: { multipartFormData in
                     multipartFormData.append(imageData,
@@ -44,7 +55,8 @@ extension NetworkingHanlder {
                     switch result {
                     case .success(let uploadRequest, _, _):
                         uploadRequest.uploadProgress{ progress in
-                            progressCompletion(Float(progress.fractionCompleted))
+                            self.delegate?.uploadProcess?(Float(progress.fractionCompleted))
+                            //progressCompletion(Float(progress.fractionCompleted))
                         }
                         
                         uploadRequest.validate()
@@ -52,7 +64,8 @@ extension NetworkingHanlder {
                         uploadRequest.responseJSON { response in
                             guard response.result.isSuccess else {
                                 print("Error while uploading file: \(String(describing: response.result.error))")
-                                completion([String]())
+                                self.delegate?.uploadFinish([String]())
+                                //completion([String]())
                                 return
                             }
                             
@@ -61,16 +74,17 @@ extension NetworkingHanlder {
                                 let firstFile = uploadedFiles.first,
                                 let firstFileId = firstFile["id"] as? String else {
                                     print("Invalid information received from service")
-                                    completion([String]())
+                                    self.delegate?.uploadFinish([String]())
+                                    //completion([String]())
                                     return
                             }
                             
                             print("Content uploaded with ID: \(firstFileId)")
                             
                             
-                            donwloadTags(contentID: firstFileId) { tags in
-                                
-                                completion(tags)
+                            self.donwloadTags(contentID: firstFileId) { tags in
+                                self.delegate?.uploadFinish(tags)
+                                //completion(tags)
                             }
                         }
                         
@@ -81,7 +95,7 @@ extension NetworkingHanlder {
             }
         }
         
-        fileprivate class func donwloadTags(contentID: String, completion: @escaping downloadTags) {
+        fileprivate func donwloadTags(contentID: String, completion: @escaping downloadTags) {
             
             Alamofire.request(ImaggaRouter.tags(contentID))
                 .responseJSON{ response in
@@ -110,3 +124,4 @@ extension NetworkingHanlder {
         }
     }
 }
+

@@ -28,10 +28,7 @@ class SceneViewController: UIViewController {
 extension SceneViewController: UIImagePickerControllerDelegate {
     @IBAction func getPhoto(_ sender: Any) {
         
-        let photoPickerVC = UIImagePickerController()
-        photoPickerVC.delegate = self
-        photoPickerVC.allowsEditing = false
-        photoPickerVC.modalPresentationStyle = .fullScreen
+        
         
         let alertController = UIAlertController(title: "Choose a photo from", message: "", preferredStyle: .alert)
         
@@ -46,13 +43,18 @@ extension SceneViewController: UIImagePickerControllerDelegate {
                 return
             }
             
-            photoPickerVC.sourceType = .camera
-            photoPickerVC.cameraCaptureMode = .photo
+            let vc = CameraViewController()
             
-            self.present(photoPickerVC, animated: true, completion: nil)
+            self.present(vc, animated: true, completion: nil)
         }
         
         let photoLibrary = UIAlertAction(title: "Photo Library", style: .default) { (_) in
+            
+            let photoPickerVC = UIImagePickerController()
+            photoPickerVC.delegate = self
+            photoPickerVC.allowsEditing = false
+            photoPickerVC.modalPresentationStyle = .fullScreen
+            
             photoPickerVC.sourceType = .photoLibrary
             
             self.present(photoPickerVC, animated: true, completion: nil)
@@ -69,8 +71,6 @@ extension SceneViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        dismiss(animated: true)
-
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             fatalError("couldn't load image from Photos")
         }
@@ -84,6 +84,8 @@ extension SceneViewController: UIImagePickerControllerDelegate {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "analytisViewController") as! AnalytisViewController
         nextVC.photo = photo
         
+        dismiss(animated: true)
+        tabBarController?.hidesBottomBarWhenPushed = false
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
