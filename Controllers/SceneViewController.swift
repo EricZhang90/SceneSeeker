@@ -15,6 +15,8 @@ class SceneViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addPhotoReceiver()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,9 +45,9 @@ extension SceneViewController: UIImagePickerControllerDelegate {
                 return
             }
             
-            let vc = CameraViewController()
+            let cameraVC = self.storyboard!.instantiateViewController(withIdentifier: "cameraViewController")
             
-            self.present(vc, animated: true, completion: nil)
+            self.present(cameraVC, animated: true, completion: nil)
         }
         
         let photoLibrary = UIAlertAction(title: "Photo Library", style: .default) { (_) in
@@ -71,11 +73,19 @@ extension SceneViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
+        dismiss(animated: true)
+        
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             fatalError("couldn't load image from Photos")
         }
         
+        processImage(image)
+    }
+    
+    func processImage(_ image: UIImage) {
+        
         let photo = Photo(image: image)
+        
         let realm = try! Realm()
         try! realm.write {
             realm.add(photo)
@@ -84,8 +94,6 @@ extension SceneViewController: UIImagePickerControllerDelegate {
         let nextVC = storyboard?.instantiateViewController(withIdentifier: "analytisViewController") as! AnalytisViewController
         nextVC.photo = photo
         
-        dismiss(animated: true)
-        tabBarController?.hidesBottomBarWhenPushed = false
         navigationController?.pushViewController(nextVC, animated: true)
     }
     
@@ -95,3 +103,23 @@ extension SceneViewController: UIImagePickerControllerDelegate {
 extension SceneViewController: UINavigationControllerDelegate {
 }
 
+// MARK: - Receive photo
+extension SceneViewController {
+    
+    func addPhotoReceiver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(photoDidReceived),
+            name: Notification.Name(rawValue: "photoNotification"),
+            object: nil)
+    }
+    
+    @objc func photoDidReceived(notification:NSNotification) {
+        
+        let userInfo = notification.userInfo as! Dictionary<String,UIImage>
+        
+        let image = userInfo["photo"]
+        
+        processImage(image!)
+    }
+}

@@ -167,6 +167,54 @@
             </objects>
             <point key="canvasLocation" x="2146" y="176"/>
         </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="yDi-Vq-lAB">
+            <objects>
+                <viewController storyboardIdentifier="cameraViewController" id="Qik-zz-Kwz" customClass="CameraViewController" customModule="SceneSeeker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h1H-Na-PyV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBz-Vl-zhd">
+                                <rect key="frame" x="30" y="539" width="90" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Sw5-W6-77r"/>
+                                    <constraint firstAttribute="height" constant="40" id="Upg-9J-SjY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cameraDidCancel" destination="Qik-zz-Kwz" eventType="touchUpInside" id="M0C-lL-mfZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCP-Mz-Co8">
+                                <rect key="frame" x="153" y="521" width="90" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="IQB-ks-76E"/>
+                                    <constraint firstAttribute="width" secondItem="jCP-Mz-Co8" secondAttribute="height" multiplier="150:126" id="J7e-qO-GTc"/>
+                                </constraints>
+                                <state key="normal" image="camera_btn"/>
+                                <connections>
+                                    <action selector="cameraDidTaped" destination="Qik-zz-Kwz" eventType="touchUpInside" id="38S-LB-YCM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nBz-Vl-zhd" firstAttribute="centerY" secondItem="jCP-Mz-Co8" secondAttribute="centerY" id="1l3-N3-EiM"/>
+                            <constraint firstItem="nBz-Vl-zhd" firstAttribute="leading" secondItem="BkY-jf-tTM" secondAttribute="leading" constant="30" id="aYN-mK-OyF"/>
+                            <constraint firstItem="jCP-Mz-Co8" firstAttribute="centerX" secondItem="h1H-Na-PyV" secondAttribute="centerX" constant="10" id="nmQ-af-ZwA"/>
+                            <constraint firstItem="BkY-jf-tTM" firstAttribute="bottom" secondItem="jCP-Mz-Co8" secondAttribute="bottom" constant="70" id="ySZ-iT-RiS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BkY-jf-tTM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C1o-FY-gyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3160" y="236"/>
+        </scene>
         <!--Detect-->
         <scene sceneID="XMD-Tb-gGT">
             <objects>
@@ -263,6 +311,7 @@
     <resources>
         <image name="TabBar_Search" width="24" height="25"/>
         <image name="background2" width="274" height="512"/>
+        <image name="camera_btn" width="150" height="126"/>
         <image name="detection" width="7027" height="4701"/>
     </resources>
 </document>

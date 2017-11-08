@@ -11,14 +11,84 @@ import AVFoundation
 import RealmSwift
 
 
-class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
-    
-    @IBAction func takePhoto(_ sender: Any) {
-    }
+class CameraViewController: UIViewController {
     
     var cameraBtn: UIButton!
     var cancelBtn: UIButton!
     
+    var captureSession: AVCaptureSession!
+    var photoOutput: AVCapturePhotoOutput!
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupCamera()
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        captureSession.stopRunning()
+        super.dismiss(animated: flag, completion: completion)
+    }
+}
+
+
+// MARK: - Camera setup
+extension CameraViewController {
+    
+    func setupCamera() {
+        
+        captureSession = AVCaptureSession()
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        
+        guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video) else {
+            alert(msg: "Back camera is not available")
+            return
+        }
+        
+        let input = try! AVCaptureDeviceInput(device: backCamera)
+        
+        if captureSession!.canAddInput(input) {
+            
+            captureSession!.addInput(input)
+            
+            photoOutput = AVCapturePhotoOutput()
+            
+            if captureSession!.canAddOutput(photoOutput!) {
+                
+                captureSession!.addOutput(photoOutput!)
+                
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                previewLayer.frame = view.bounds
+                previewLayer.connection!.videoOrientation = AVCaptureVideoOrientation.portrait
+                
+                view.layer.insertSublayer(previewLayer, at: 0)
+                
+                captureSession.startRunning()
+                captureSession.commitConfiguration()
+            }
+        }
+        
+    }
+
+    
+    @IBAction func cameraDidTaped() {
+
+        let setting = AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecType.jpeg])
+        photoOutput.capturePhoto(with: setting, delegate: self)
+    }
+    
+    
+    @IBAction func cameraDidCancel() {
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+
+// MARK: - Process Image
+extension CameraViewController: AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let error = error {
@@ -26,128 +96,16 @@ class CameraViewController: UIViewController, AVCapturePhotoCaptureDelegate {
         }
         
         let imageData = photo.fileDataRepresentation()
-
-//        let cgImage
+        
         let image = UIImage(data: imageData!, scale: 1.0)
         
-//        let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
-        let photo = Photo(image: image!)
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(photo)
-        }
-        captureSession?.stopRunning()
-        let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "analytisViewController") as! AnalytisViewController
-        nextVC.photo = photo
-        present(nextVC, animated: true, completion: nil)
-        //navigationController?.pushViewController(nextVC, animated: true)
-    }
-  
-    
-    // MARK: Local Variables
-    
-    var captureSession: AVCaptureSession?
-    var stillImageOutput: AVCapturePhotoOutput?
-    var previewLayer: AVCaptureVideoPreviewLayer?
-
-    
-    // MARK: Overrides
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        NotificationCenter.default.post(
+            name: NSNotification.Name(rawValue: "photoNotification"),
+            object: nil,
+            userInfo: ["photo": image as Any])
         
-        setupCamera()
-        
-        //view.backgroundColor = UIColor.white
-        
-        // setupButtons()
-        
-        
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cameraDidTaped))
-        view.addGestureRecognizer(tapGesture)
+        dismiss(animated: true, completion: nil)
     }
     
-    func setupCamera() {
-        captureSession = AVCaptureSession()
-        captureSession!.sessionPreset = AVCaptureSession.Preset.photo
-        
-        let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
-        
-        
-        var error: NSError?
-        var input: AVCaptureDeviceInput!
-        do {
-            input = try AVCaptureDeviceInput(device: backCamera!)
-        } catch let error1 as NSError {
-            error = error1
-            input = nil
-        }
-        
-        if error == nil && captureSession!.canAddInput(input) {
-            captureSession!.addInput(input)
-            
-            stillImageOutput = AVCapturePhotoOutput()
-            
-            if captureSession!.canAddOutput(stillImageOutput!) {
-                captureSession!.addOutput(stillImageOutput!)
-                
-                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
-                previewLayer!.videoGravity = AVLayerVideoGravity.resizeAspectFill
-                previewLayer?.frame = view.bounds
-                previewLayer!.connection!.videoOrientation = AVCaptureVideoOrientation.portrait
-                view.layer.addSublayer(previewLayer!)
-                
-                captureSession!.startRunning()
-                captureSession?.commitConfiguration()
-            }
-        }
-    }
-    
-    func setupButtons() {
-        
-        cameraBtn = UIButton()
-        
-        cameraBtn.addTarget(self, action: #selector(cameraDidTaped), for: .touchUpInside)
-        
-        cameraBtn.setBackgroundImage(UIImage(named: "camera_circle"), for: .normal)
-        
-        cameraBtn.clipsToBounds = true
-        
-        view.addSubview(cameraBtn)
-        
-        cameraBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-        cameraBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-        cameraBtn.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100).isActive = true
-        
-        cameraBtn.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        
-        cameraBtn.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        
-        
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-        super.viewWillDisappear(animated)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @objc func cameraDidTaped() {
-        let setting = AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecType.jpeg])
-        stillImageOutput?.capturePhoto(with: setting, delegate: self)
-        
-    }
 }
+
