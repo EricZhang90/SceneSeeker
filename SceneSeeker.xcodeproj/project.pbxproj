@@ -8,8 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		240D46261FABC79900B43195 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240D46251FABC79900B43195 /* CameraViewController.swift */; };
+		240D46281FB371CB00B43195 /* ImageProcessDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240D46271FB371CB00B43195 /* ImageProcessDelegate.swift */; };
+		240D462A1FB3740300B43195 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240D46291FB3740300B43195 /* Tag.swift */; };
+		2414E8B21FB392C100192CF0 /* GoogLeNetPlaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2414E8B11FB392C100192CF0 /* GoogLeNetPlaces.mlmodel */; };
+		2414E8B41FB3940D00192CF0 /* SceneDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414E8B31FB3940D00192CF0 /* SceneDetector.swift */; };
+		2414E8B61FB4B2AD00192CF0 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414E8B51FB4B2AD00192CF0 /* ErrorHandler.swift */; };
 		2425EF261FAA134F00DDEBF7 /* default_v1.realm in Resources */ = {isa = PBXBuildFile; fileRef = 2425EF251FAA134E00DDEBF7 /* default_v1.realm */; };
-		2425EF2B1FAA3E1200DDEBF7 /* NetworkingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2425EF2A1FAA3E1200DDEBF7 /* NetworkingHandler.swift */; };
+		2425EF2B1FAA3E1200DDEBF7 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2425EF2A1FAA3E1200DDEBF7 /* NetworkHandler.swift */; };
 		2425EF2D1FAA452100DDEBF7 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2425EF2C1FAA452100DDEBF7 /* Errors.swift */; };
 		2425EF2F1FAB6A2800DDEBF7 /* UIViewController+Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2425EF2E1FAB6A2800DDEBF7 /* UIViewController+Basic.swift */; };
 		2447639B1FA796C200FB49E6 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */; };
@@ -39,8 +44,13 @@
 
 /* Begin PBXFileReference section */
 		240D46251FABC79900B43195 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		240D46271FB371CB00B43195 /* ImageProcessDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessDelegate.swift; sourceTree = "<group>"; };
+		240D46291FB3740300B43195 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		2414E8B11FB392C100192CF0 /* GoogLeNetPlaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = GoogLeNetPlaces.mlmodel; sourceTree = "<group>"; };
+		2414E8B31FB3940D00192CF0 /* SceneDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDetector.swift; sourceTree = "<group>"; };
+		2414E8B51FB4B2AD00192CF0 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		2425EF251FAA134E00DDEBF7 /* default_v1.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default_v1.realm; sourceTree = "<group>"; };
-		2425EF2A1FAA3E1200DDEBF7 /* NetworkingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHandler.swift; sourceTree = "<group>"; };
+		2425EF2A1FAA3E1200DDEBF7 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		2425EF2C1FAA452100DDEBF7 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		2425EF2E1FAB6A2800DDEBF7 /* UIViewController+Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Basic.swift"; sourceTree = "<group>"; };
 		2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
@@ -84,9 +94,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2414E8B71FB4B34900192CF0 /* Detectors */ = {
+			isa = PBXGroup;
+			children = (
+				2414E8B31FB3940D00192CF0 /* SceneDetector.swift */,
+				240D46271FB371CB00B43195 /* ImageProcessDelegate.swift */,
+			);
+			path = Detectors;
+			sourceTree = "<group>";
+		};
 		2425EF241FAA0E9500DDEBF7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2414E8B11FB392C100192CF0 /* GoogLeNetPlaces.mlmodel */,
 				24E315A11FA3796400571F4C /* Main.storyboard */,
 				24E315A71FA3796400571F4C /* Assets.xcassets */,
 				24E315A91FA3796400571F4C /* LaunchScreen.storyboard */,
@@ -109,6 +129,8 @@
 			children = (
 				244763A41FA7E21100FB49E6 /* URL+filePath.swift */,
 				249477B61FA8F3ED009AAB66 /* Debug.swift */,
+				2425EF2C1FAA452100DDEBF7 /* Errors.swift */,
+				2414E8B51FB4B2AD00192CF0 /* ErrorHandler.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -117,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				249477BC1FA8FF1E009AAB66 /* Routers.swift */,
-				2425EF2A1FAA3E1200DDEBF7 /* NetworkingHandler.swift */,
+				2425EF2A1FAA3E1200DDEBF7 /* NetworkHandler.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -194,6 +216,7 @@
 				2447639C1FA79F8800FB49E6 /* Photo.swift */,
 				2447639E1FA7B8AF00FB49E6 /* Scene.swift */,
 				244763A21FA7DEF700FB49E6 /* RealmConfig.swift */,
+				240D46291FB3740300B43195 /* Tag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,10 +224,10 @@
 		24FFC72E1FA7831100588ED9 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2414E8B71FB4B34900192CF0 /* Detectors */,
 				2425EF291FAA3DBA00DDEBF7 /* Networking */,
 				2425EF281FAA3D9D00DDEBF7 /* General */,
 				2425EF271FAA3D8D00DDEBF7 /* UI */,
-				2425EF2C1FAA452100DDEBF7 /* Errors.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -364,7 +387,10 @@
 			files = (
 				24E315A01FA3796400571F4C /* SceneViewController.swift in Sources */,
 				249477B71FA8F3ED009AAB66 /* Debug.swift in Sources */,
+				2414E8B41FB3940D00192CF0 /* SceneDetector.swift in Sources */,
+				240D462A1FB3740300B43195 /* Tag.swift in Sources */,
 				24E315B81FA389FE00571F4C /* SceneButton.swift in Sources */,
+				2414E8B61FB4B2AD00192CF0 /* ErrorHandler.swift in Sources */,
 				2447639F1FA7B8AF00FB49E6 /* Scene.swift in Sources */,
 				249477B91FA8F6AD009AAB66 /* AnalytisViewController.swift in Sources */,
 				24FFC72B1FA7814F00588ED9 /* UIAlertController+Shortcut.swift in Sources */,
@@ -372,8 +398,10 @@
 				2425EF2F1FAB6A2800DDEBF7 /* UIViewController+Basic.swift in Sources */,
 				2425EF2D1FAA452100DDEBF7 /* Errors.swift in Sources */,
 				24E3159E1FA3796400571F4C /* AppDelegate.swift in Sources */,
-				2425EF2B1FAA3E1200DDEBF7 /* NetworkingHandler.swift in Sources */,
+				2414E8B21FB392C100192CF0 /* GoogLeNetPlaces.mlmodel in Sources */,
+				2425EF2B1FAA3E1200DDEBF7 /* NetworkHandler.swift in Sources */,
 				240D46261FABC79900B43195 /* CameraViewController.swift in Sources */,
+				240D46281FB371CB00B43195 /* ImageProcessDelegate.swift in Sources */,
 				249477BD1FA8FF1E009AAB66 /* Routers.swift in Sources */,
 				2447639B1FA796C200FB49E6 /* PhotoCollectionViewController.swift in Sources */,
 				24E315B61FA3895700571F4C /* Shapable.swift in Sources */,

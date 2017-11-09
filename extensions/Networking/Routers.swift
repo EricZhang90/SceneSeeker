@@ -37,7 +37,7 @@ enum ImaggaRouter: URLRequestConvertible {
         case .tags:
             return "/tagging"
         case .categories:
-            return "/categorizers"
+            return "/categorizations/personal_photos"
         }
     }
     
@@ -47,7 +47,8 @@ enum ImaggaRouter: URLRequestConvertible {
         let parameters: [String: Any] = {
             switch self {
             case .tags(let contentID):
-                return ["content": contentID]
+                return ["content": contentID,
+                        "limit": 4]
             case .categories(let contentID):
                 return ["content": contentID]
             default:

@@ -18,7 +18,7 @@ class Scene: Object {
     
     
     // MARK: Persisted properties
-    @objc dynamic var identifier: String!
+    @objc dynamic var identifier = ""
     @objc dynamic var confidence = 0.0
     let similarScenePaths = List<String>()
 }

@@ -20,6 +20,7 @@ class Photo: Object {
     @objc dynamic var date: Date = Date()
     @objc dynamic var isFav: Bool = false
     let scenes = List<Scene>()
+    let tags = List<Tag>()
 }
 
 
