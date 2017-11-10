@@ -26,8 +26,15 @@ class AnalytisViewController: UIViewController {
     
     var cate = [Scene]()
     
+    var localDetector: SceneDetector!
+    var remoteDetector: SceneDetector!
+    
+    var realm: Realm!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        realm = try! Realm()
 
         tagTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
@@ -45,11 +52,11 @@ class AnalytisViewController: UIViewController {
         
         progressView.isHidden = false
         
-        let localDetector = SceneDetector(delegate: self, kind: .local)
+        localDetector = SceneDetector(delegate: self, kind: .local)
         
         localDetector.detectScene(image)
         
-        let remoteDetector = SceneDetector(delegate: self, kind: .internet)
+        remoteDetector = SceneDetector(delegate: self, kind: .internet)
         
         remoteDetector.detectScene(image)
         
@@ -109,17 +116,24 @@ extension AnalytisViewController: ImageProcessor {
     
     func processTags(_ tags: [Tag]) {
         
-        progressView.isHidden = true
+        
         
         let tags = tags.sorted { $0.confidence > $1.confidence }
         
-        let realm = try! Realm()
-        try! realm.write {
-            for tag in tags {
-                photo.tags.append(tag)
+        
+        
+        DispatchQueue.main.async {
+            
+            self.progressView.isHidden = true
+            
+            try! self.realm.write {
+                for tag in tags {
+                    self.photo.tags.append(tag)
+                }
             }
+            
+            self.tagTableView.reloadData()
         }
-        tagTableView.reloadData()
     }
     
     func processCategories(_ categories: [Scene], kind: SceneDetector.Kind) {
@@ -128,19 +142,23 @@ extension AnalytisViewController: ImageProcessor {
         
         if kind == .internet {
             
-            let realm = try! Realm()
-            try! realm.write {
-                for cate in categories {
-                    photo.scenes.append(cate)
+            DispatchQueue.main.async {
+                try! self.realm.write {
+                    for cate in categories {
+                        self.photo.scenes.append(cate)
+                    }
                 }
+                
+                self.tagTableView.reloadData()
             }
-            
-            tagTableView.reloadData()
         }
         else {
             cate = categories
             
-            categoriesTableView.reloadData()
+            DispatchQueue.main.async {
+                self.categoriesTableView.reloadData()
+            }
+            
         }
     }
     
@@ -149,7 +167,7 @@ extension AnalytisViewController: ImageProcessor {
     }
     
     func handleError(error: GeneralError) {
-        
+        print(error.error)
     }
 }
 

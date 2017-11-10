@@ -235,6 +235,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BkY-jf-tTM"/>
                     </view>
+                    <connections>
+                        <outlet property="cameraBtn" destination="jCP-Mz-Co8" id="fkC-on-Drg"/>
+                        <outlet property="cancelBtn" destination="nBz-Vl-zhd" id="ntc-54-hxa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1o-FY-gyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

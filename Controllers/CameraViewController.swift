@@ -13,22 +13,17 @@ import RealmSwift
 
 class CameraViewController: UIViewController {
     
-    var cameraBtn: UIButton!
-    var cancelBtn: UIButton!
-    
     var captureSession: AVCaptureSession!
     var photoOutput: AVCapturePhotoOutput!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    @IBOutlet weak var cameraBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCamera()
-    }
-    
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        captureSession.stopRunning()
-        super.dismiss(animated: flag, completion: completion)
     }
 }
 
@@ -74,9 +69,14 @@ extension CameraViewController {
 
     
     @IBAction func cameraDidTaped() {
-
+        
         let setting = AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecType.jpeg])
         photoOutput.capturePhoto(with: setting, delegate: self)
+        
+        cameraBtn.isHidden = true
+        cancelBtn.isHidden = true
+        
+        captureSession.stopRunning()
     }
     
     
@@ -91,8 +91,10 @@ extension CameraViewController {
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if let error = error {
-            print(error.localizedDescription)
+        
+        guard error == nil else {
+            alert(msg: "Camera is not available")
+            return
         }
         
         let imageData = photo.fileDataRepresentation()

@@ -20,8 +20,7 @@ class SceneDetector {
     
     let kind: Kind
     
-    var delegate: ImageProcessor
-    
+    weak var delegate: ImageProcessor?
     
     required init(delegate: ImageProcessor, kind: Kind) {
         self.delegate = delegate
@@ -49,15 +48,15 @@ extension SceneDetector {
         
         guard let model = try? VNCoreMLModel(for: GoogLeNetPlaces().model) else {
             let e = ImageProcessError(kind: .MLCoreModel, error: "fail to wrap Google Model".debugDescription)
-            delegate.handleError(error: e)
+            delegate?.handleError(error: e)
             return
         }
         
-        let request = VNCoreMLRequest(model: model) { [weak self](request, error) in
+        let request = VNCoreMLRequest(model: model) { [unowned self](request, error) in
             
             guard error == nil else {
                 let e = ImageProcessError(kind: .MLCoreProcess, error: error.debugDescription)
-                self?.delegate.handleError(error: e)
+                self.delegate?.handleError(error: e)
                 return
             }
             
@@ -68,9 +67,7 @@ extension SceneDetector {
                     return Scene(identifier: result.identifier, confidence: Double(result.confidence))
                 }
                 
-                if let kind = self?.kind {
-                    self?.delegate.processCategories(scenes, kind: kind)
-                }
+                self.delegate?.processCategories(scenes, kind: self.kind)
             }
         }
         
@@ -80,7 +77,6 @@ extension SceneDetector {
             try? handler.perform([request])
         }
     }
-    
     
 }
 
@@ -93,21 +89,32 @@ extension SceneDetector: NetworkHanlder {
     //    typealias downloadCategories = ([Scene]) -> Void
     
     private func detectByServer(image: UIImage) {
+        
         guard checkNetworkConnection() else {
             let e = NetworkURLError(kind: .notConnectedToInternet)
-            delegate.handleError(error: e)
+            delegate?.handleError(error: e)
             return
         }
         
-        upload(image: image)
+        upload(image: image) { [unowned self] contentID in
+            
+            self.downlaodTags(contentID: contentID) { [unowned self] tags in
+                self.delegate?.processTags(tags)
+            }
+            
+            self.downloadCategoires(contentID: contentID) { [unowned self] categories in
+                
+                self.delegate?.processCategories(categories, kind: self.kind)
+            }
+        }
     }
     
     
-    private func upload(image: UIImage) {
+    private func upload(image: UIImage, completion: @escaping (String) -> Void) {
         
         guard let imageData = UIImageJPEGRepresentation(image, 0.5) else {
             let e = ImageProcessError(kind: .convert, error: "Could not get JPEG representation of UIImage")
-            delegate.handleError(error: e)
+            delegate?.handleError(error: e)
             return
         }
         
@@ -116,31 +123,32 @@ extension SceneDetector: NetworkHanlder {
                 
                 multipartFormData.append(imageData,
                                          withName: "imageFile",
+                                         fileName: "image.jpg",
                                          mimeType: "image/jpeg")
                 
-            },  with: ImaggaRouter.content) { [weak self] result in
+            },  with: ImaggaRouter.content) { result in
                 
                 switch result {
                 case .failure(let error):
                     
                     let e = NetworkHTTPError(error: error.localizedDescription)
-                    self?.delegate.handleError(error: e)
+                    self.delegate?.handleError(error: e)
                     
                 case .success(let uploadRequest, _, _):
                     
-                    uploadRequest.uploadProgress{ progress in
-                        self?.delegate.processUploadProgress(Float(progress.fractionCompleted))
+                    uploadRequest.uploadProgress{ [unowned self] progress in
+                        self.delegate?.processUploadProgress(Float(progress.fractionCompleted))
                     }
                     
                     uploadRequest.validate()
                     
                     let q = DispatchQueue.global(qos: .userInitiated)
                     
-                    uploadRequest.responseJSON(queue: q) { response in
+                    uploadRequest.responseJSON(queue: q) { [unowned self] response in
                         
                         guard response.result.isSuccess else {
                             let e = NetworkHTTPError(kind: response.response!, error: "fail to upload image")
-                            self?.delegate.handleError(error: e)
+                            self.delegate?.handleError(error: e)
                             return
                         }
                         
@@ -150,19 +158,11 @@ extension SceneDetector: NetworkHanlder {
                             let firstFile = uploadedFiles.first,
                             let contentID = firstFile["id"] as? String else {
                                 let e = DataFromateError(kind: .JSON, error: "Invalid contentID information received from service")
-                                self?.delegate.handleError(error: e)
+                                self.delegate?.handleError(error: e)
                                 return
                         }
                         
-                        self?.downlaodTags(contentID: contentID) { tags in
-                            self?.delegate.processTags(tags)
-                        }
-                        
-                        self?.downloadCategoires(contentID: contentID) { categories in
-                            if let kind = self?.kind {
-                                self?.delegate.processCategories(categories, kind: kind)
-                            }
-                        }
+                        completion(contentID)
                     }
                 }
         }
@@ -173,11 +173,11 @@ extension SceneDetector: NetworkHanlder {
         let q = DispatchQueue.global(qos: .userInitiated)
         Alamofire
             .request(ImaggaRouter.tags(contentID))
-            .responseJSON(queue: q) { [weak self] response in
+            .responseJSON(queue: q) { [unowned self] response in
                 
                 guard response.result.isSuccess else {
                     let e = NetworkHTTPError(kind: response.response!, error: "fail to dowonload tags")
-                    self?.delegate.handleError(error: e)
+                    self.delegate?.handleError(error: e)
                     return
                 }
                 
@@ -188,7 +188,7 @@ extension SceneDetector: NetworkHanlder {
                     let tagsAndConfidences = firstObject["tags"] as? [[String: Any]] else {
                         
                         let e = DataFromateError(kind: .JSON, error: "Invalid tag information received from the service.")
-                        self?.delegate.handleError(error: e)
+                        self.delegate?.handleError(error: e)
                         return
                 }
                 
@@ -208,11 +208,11 @@ extension SceneDetector: NetworkHanlder {
         let q = DispatchQueue.global(qos: .userInitiated)
         Alamofire
             .request(ImaggaRouter.categories(contentID))
-            .responseJSON(queue: q) { [weak self] response in
+            .responseJSON(queue: q) { [unowned self] response in
                 
                 guard response.result.isSuccess else {
                     let e = NetworkHTTPError(kind: response.response!, error: "Fail to download categories")
-                    self?.delegate.handleError(error: e)
+                    self.delegate?.handleError(error: e)
                     return
                 }
                 
@@ -223,7 +223,7 @@ extension SceneDetector: NetworkHanlder {
                     let identifiersAndConfidences = firstObj["categories"] as? [[String: Any]] else {
                         
                         let e = DataFromateError(kind: .JSON, error: "Invalid category information received from the service.")
-                        self?.delegate.handleError(error: e)
+                        self.delegate?.handleError(error: e)
                         return
                 }
                 

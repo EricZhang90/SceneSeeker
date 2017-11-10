@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ImageProcessor:  ErrorHandler{
+protocol ImageProcessor:  class, ErrorHandler {
     
     // MARK: optional methods
     func processUploadProgress(_ percent: Float)
@@ -19,7 +19,7 @@ protocol ImageProcessor:  ErrorHandler{
 }
 
 extension ImageProcessor {
-    func processUpload(_ percent: Float) {
+    func processUploadProgress(_ percent: Float) {
         
     }
 }
