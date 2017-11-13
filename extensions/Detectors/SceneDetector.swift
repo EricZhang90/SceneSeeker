@@ -60,8 +60,12 @@ extension SceneDetector {
                 return
             }
             
-            if let results = request.results as? [VNClassificationObservation],
+            if var results = request.results as? [VNClassificationObservation],
                 results.count > 0 {
+                
+                if results.count > 4 {
+                    results = Array(results.prefix(4))
+                }
                 
                 let scenes = results.flatMap { result in
                     return Scene(identifier: result.identifier, confidence: Double(result.confidence))
@@ -220,11 +224,15 @@ extension SceneDetector: NetworkHanlder {
                     let json = response.result.value as? [String: Any],
                     let results = json["results"] as? [[String: Any]],
                     let firstObj = results.first,
-                    let identifiersAndConfidences = firstObj["categories"] as? [[String: Any]] else {
+                    var identifiersAndConfidences = firstObj["categories"] as? [[String: Any]] else {
                         
                         let e = DataFromateError(kind: .JSON, error: "Invalid category information received from the service.")
                         self.delegate?.handleError(error: e)
                         return
+                }
+                
+                if identifiersAndConfidences.count > 4 {
+                    identifiersAndConfidences = Array(identifiersAndConfidences.prefix(4))
                 }
                 
                 let categories: [Scene] = identifiersAndConfidences.flatMap { dict in

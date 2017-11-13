@@ -15,7 +15,7 @@ protocol Shapable {
 
 extension Shapable {
     
-    func roundCorner(_ radius: CGFloat = 0) {
+    func roundCorner(radius: CGFloat = 0) {
 
         layer.cornerRadius = radius == 0 ? layer.frame.size.height / 2 : radius
     }

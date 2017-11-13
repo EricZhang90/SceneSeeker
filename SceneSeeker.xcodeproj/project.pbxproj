@@ -23,9 +23,10 @@
 		244763A11FA7BC4700FB49E6 /* UIImage+LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244763A01FA7BC4700FB49E6 /* UIImage+LocalRepository.swift */; };
 		244763A31FA7DEF700FB49E6 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244763A21FA7DEF700FB49E6 /* RealmConfig.swift */; };
 		244763A51FA7E21100FB49E6 /* URL+filePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244763A41FA7E21100FB49E6 /* URL+filePath.swift */; };
+		245530FE1FBA2A4B00B223A5 /* AnalysisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245530FD1FBA2A4B00B223A5 /* AnalysisTableViewController.swift */; };
+		245531001FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245530FF1FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift */; };
 		249477B71FA8F3ED009AAB66 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477B61FA8F3ED009AAB66 /* Debug.swift */; };
-		249477B91FA8F6AD009AAB66 /* AnalytisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477B81FA8F6AD009AAB66 /* AnalytisViewController.swift */; };
-		249477BB1FA8F7F6009AAB66 /* AnalytisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477BA1FA8F7F6009AAB66 /* AnalytisTableViewCell.swift */; };
+		249477BB1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477BA1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift */; };
 		249477BD1FA8FF1E009AAB66 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477BC1FA8FF1E009AAB66 /* Routers.swift */; };
 		249477C11FA90E0F009AAB66 /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249477BF1FA90E0F009AAB66 /* appIcon@2x.png */; };
 		249477C21FA90E0F009AAB66 /* appIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249477C01FA90E0F009AAB66 /* appIcon@3x.png */; };
@@ -59,9 +60,10 @@
 		244763A01FA7BC4700FB49E6 /* UIImage+LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+LocalRepository.swift"; sourceTree = "<group>"; };
 		244763A21FA7DEF700FB49E6 /* RealmConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		244763A41FA7E21100FB49E6 /* URL+filePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+filePath.swift"; sourceTree = "<group>"; };
+		245530FD1FBA2A4B00B223A5 /* AnalysisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTableViewController.swift; sourceTree = "<group>"; };
+		245530FF1FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialSceneTableViewCell.swift; sourceTree = "<group>"; };
 		249477B61FA8F3ED009AAB66 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
-		249477B81FA8F6AD009AAB66 /* AnalytisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalytisViewController.swift; sourceTree = "<group>"; };
-		249477BA1FA8F7F6009AAB66 /* AnalytisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalytisTableViewCell.swift; sourceTree = "<group>"; };
+		249477BA1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		249477BC1FA8FF1E009AAB66 /* Routers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
 		249477BF1FA90E0F009AAB66 /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
 		249477C01FA90E0F009AAB66 /* appIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@3x.png"; sourceTree = "<group>"; };
@@ -193,7 +195,8 @@
 				24E315B71FA389FE00571F4C /* SceneButton.swift */,
 				24E315BB1FA3948700571F4C /* ScenePhotoView.swift */,
 				24FFC7261FA7653300588ED9 /* MainPhotoView.swift */,
-				249477BA1FA8F7F6009AAB66 /* AnalytisTableViewCell.swift */,
+				249477BA1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift */,
+				245530FF1FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,8 +207,8 @@
 				2425EF2E1FAB6A2800DDEBF7 /* UIViewController+Basic.swift */,
 				24E3159F1FA3796400571F4C /* SceneViewController.swift */,
 				2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */,
-				249477B81FA8F6AD009AAB66 /* AnalytisViewController.swift */,
 				240D46251FABC79900B43195 /* CameraViewController.swift */,
+				245530FD1FBA2A4B00B223A5 /* AnalysisTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -391,14 +394,15 @@
 				240D462A1FB3740300B43195 /* Tag.swift in Sources */,
 				24E315B81FA389FE00571F4C /* SceneButton.swift in Sources */,
 				2414E8B61FB4B2AD00192CF0 /* ErrorHandler.swift in Sources */,
+				245531001FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift in Sources */,
 				2447639F1FA7B8AF00FB49E6 /* Scene.swift in Sources */,
-				249477B91FA8F6AD009AAB66 /* AnalytisViewController.swift in Sources */,
 				24FFC72B1FA7814F00588ED9 /* UIAlertController+Shortcut.swift in Sources */,
 				2447639D1FA79F8800FB49E6 /* Photo.swift in Sources */,
 				2425EF2F1FAB6A2800DDEBF7 /* UIViewController+Basic.swift in Sources */,
 				2425EF2D1FAA452100DDEBF7 /* Errors.swift in Sources */,
 				24E3159E1FA3796400571F4C /* AppDelegate.swift in Sources */,
 				2414E8B21FB392C100192CF0 /* GoogLeNetPlaces.mlmodel in Sources */,
+				245530FE1FBA2A4B00B223A5 /* AnalysisTableViewController.swift in Sources */,
 				2425EF2B1FAA3E1200DDEBF7 /* NetworkHandler.swift in Sources */,
 				240D46261FABC79900B43195 /* CameraViewController.swift in Sources */,
 				240D46281FB371CB00B43195 /* ImageProcessDelegate.swift in Sources */,
@@ -409,7 +413,7 @@
 				24FFC7271FA7653300588ED9 /* MainPhotoView.swift in Sources */,
 				244763A11FA7BC4700FB49E6 /* UIImage+LocalRepository.swift in Sources */,
 				244763A31FA7DEF700FB49E6 /* RealmConfig.swift in Sources */,
-				249477BB1FA8F7F6009AAB66 /* AnalytisTableViewCell.swift in Sources */,
+				249477BB1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift in Sources */,
 				244763A51FA7E21100FB49E6 /* URL+filePath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

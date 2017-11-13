@@ -14,10 +14,10 @@
          contextName = "static UIImageManger.loadImageFromFileSystem(filePath:):UIImageManger.swift">
          <PersistentStrings>
             <PersistentString
-               value = "print(filePath)">
+               value = "filePath">
             </PersistentString>
             <PersistentString
-               value = "filePath">
+               value = "print(filePath)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -34,6 +34,14 @@
          <PersistentStrings>
             <PersistentString
                value = "imagesLocalPath.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainPhotoTableViewCell.setupCell(by:):MainPhotoTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "photo.tags.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

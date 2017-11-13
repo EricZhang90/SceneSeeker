@@ -1,16 +1,15 @@
 //
-//  AnalytisTableViewCell.swift
+//  potentialSceneTableViewCell.swift
 //  SceneSeeker
 //
-//  Created by Lei zhang on 2017-10-31.
+//  Created by Lei zhang on 2017-11-13.
 //  Copyright © 2017 lei zhang. All rights reserved.
 //
 
 import UIKit
 
-class AnalytisTableViewCell: UITableViewCell {
+class PotentialSceneTableViewCell: UITableViewCell {
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

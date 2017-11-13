@@ -91,7 +91,7 @@ extension SceneViewController: UIImagePickerControllerDelegate {
             realm.add(photo)
         }
         
-        let nextVC = storyboard?.instantiateViewController(withIdentifier: "analytisViewController") as! AnalytisViewController
+        let nextVC = storyboard?.instantiateViewController(withIdentifier: "analysisTableViewController") as! AnalysisTableViewController
         nextVC.photo = photo
         
         navigationController?.pushViewController(nextVC, animated: true)

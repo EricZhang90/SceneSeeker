@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("Curruent app directory: [\(URL.createFilePath(fileName: ""))]")
         
+        //window?.rootViewController = AnalysisTableViewController()
+        
         return true
     }
     
