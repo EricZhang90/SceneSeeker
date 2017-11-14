@@ -25,6 +25,9 @@
 		244763A51FA7E21100FB49E6 /* URL+filePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244763A41FA7E21100FB49E6 /* URL+filePath.swift */; };
 		245530FE1FBA2A4B00B223A5 /* AnalysisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245530FD1FBA2A4B00B223A5 /* AnalysisTableViewController.swift */; };
 		245531001FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245530FF1FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift */; };
+		2484C2D21FBA719F002C87C2 /* PotentialSceneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484C2D11FBA719F002C87C2 /* PotentialSceneCollectionViewCell.swift */; };
+		2484C2D51FBA735C002C87C2 /* PotentialSceneCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484C2D41FBA735C002C87C2 /* PotentialSceneCollectionViewLayout.swift */; };
+		2484C2D71FBA7EE4002C87C2 /* PotentialSceneTableViewCell + InternalCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2484C2D61FBA7EE4002C87C2 /* PotentialSceneTableViewCell + InternalCollectionViewController.swift */; };
 		249477B71FA8F3ED009AAB66 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477B61FA8F3ED009AAB66 /* Debug.swift */; };
 		249477BB1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477BA1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift */; };
 		249477BD1FA8FF1E009AAB66 /* Routers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249477BC1FA8FF1E009AAB66 /* Routers.swift */; };
@@ -37,7 +40,6 @@
 		24E315AB1FA3796400571F4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24E315A91FA3796400571F4C /* LaunchScreen.storyboard */; };
 		24E315B61FA3895700571F4C /* Shapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E315B51FA3895700571F4C /* Shapable.swift */; };
 		24E315B81FA389FE00571F4C /* SceneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E315B71FA389FE00571F4C /* SceneButton.swift */; };
-		24E315BC1FA3948700571F4C /* ScenePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E315BB1FA3948700571F4C /* ScenePhotoView.swift */; };
 		24FFC7271FA7653300588ED9 /* MainPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFC7261FA7653300588ED9 /* MainPhotoView.swift */; };
 		24FFC72B1FA7814F00588ED9 /* UIAlertController+Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FFC72A1FA7814F00588ED9 /* UIAlertController+Shortcut.swift */; };
 		81364966A65CDDF4911D382D /* Pods_SceneSeeker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AD5F52EFC49D254E80447B /* Pods_SceneSeeker.framework */; };
@@ -62,6 +64,9 @@
 		244763A41FA7E21100FB49E6 /* URL+filePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+filePath.swift"; sourceTree = "<group>"; };
 		245530FD1FBA2A4B00B223A5 /* AnalysisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisTableViewController.swift; sourceTree = "<group>"; };
 		245530FF1FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialSceneTableViewCell.swift; sourceTree = "<group>"; };
+		2484C2D11FBA719F002C87C2 /* PotentialSceneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialSceneCollectionViewCell.swift; sourceTree = "<group>"; };
+		2484C2D41FBA735C002C87C2 /* PotentialSceneCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialSceneCollectionViewLayout.swift; sourceTree = "<group>"; };
+		2484C2D61FBA7EE4002C87C2 /* PotentialSceneTableViewCell + InternalCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotentialSceneTableViewCell + InternalCollectionViewController.swift"; sourceTree = "<group>"; };
 		249477B61FA8F3ED009AAB66 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		249477BA1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoTableViewCell.swift; sourceTree = "<group>"; };
 		249477BC1FA8FF1E009AAB66 /* Routers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routers.swift; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		24E315AC1FA3796400571F4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24E315B51FA3895700571F4C /* Shapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapable.swift; sourceTree = "<group>"; };
 		24E315B71FA389FE00571F4C /* SceneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneButton.swift; sourceTree = "<group>"; };
-		24E315BB1FA3948700571F4C /* ScenePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePhotoView.swift; sourceTree = "<group>"; };
 		24FFC7261FA7653300588ED9 /* MainPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPhotoView.swift; sourceTree = "<group>"; };
 		24FFC72A1FA7814F00588ED9 /* UIAlertController+Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Shortcut.swift"; sourceTree = "<group>"; };
 		38B8DC189D1E0AEBD9E212E8 /* Pods-SceneSeeker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SceneSeeker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SceneSeeker/Pods-SceneSeeker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,10 +197,11 @@
 			children = (
 				24E315B51FA3895700571F4C /* Shapable.swift */,
 				24E315B71FA389FE00571F4C /* SceneButton.swift */,
-				24E315BB1FA3948700571F4C /* ScenePhotoView.swift */,
 				24FFC7261FA7653300588ED9 /* MainPhotoView.swift */,
 				249477BA1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift */,
 				245530FF1FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift */,
+				2484C2D11FBA719F002C87C2 /* PotentialSceneCollectionViewCell.swift */,
+				2484C2D41FBA735C002C87C2 /* PotentialSceneCollectionViewLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				2447639A1FA796C200FB49E6 /* PhotoCollectionViewController.swift */,
 				240D46251FABC79900B43195 /* CameraViewController.swift */,
 				245530FD1FBA2A4B00B223A5 /* AnalysisTableViewController.swift */,
+				2484C2D61FBA7EE4002C87C2 /* PotentialSceneTableViewCell + InternalCollectionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -336,12 +342,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -390,10 +398,12 @@
 			files = (
 				24E315A01FA3796400571F4C /* SceneViewController.swift in Sources */,
 				249477B71FA8F3ED009AAB66 /* Debug.swift in Sources */,
+				2484C2D71FBA7EE4002C87C2 /* PotentialSceneTableViewCell + InternalCollectionViewController.swift in Sources */,
 				2414E8B41FB3940D00192CF0 /* SceneDetector.swift in Sources */,
 				240D462A1FB3740300B43195 /* Tag.swift in Sources */,
 				24E315B81FA389FE00571F4C /* SceneButton.swift in Sources */,
 				2414E8B61FB4B2AD00192CF0 /* ErrorHandler.swift in Sources */,
+				2484C2D21FBA719F002C87C2 /* PotentialSceneCollectionViewCell.swift in Sources */,
 				245531001FBA5AD400B223A5 /* PotentialSceneTableViewCell.swift in Sources */,
 				2447639F1FA7B8AF00FB49E6 /* Scene.swift in Sources */,
 				24FFC72B1FA7814F00588ED9 /* UIAlertController+Shortcut.swift in Sources */,
@@ -409,9 +419,9 @@
 				249477BD1FA8FF1E009AAB66 /* Routers.swift in Sources */,
 				2447639B1FA796C200FB49E6 /* PhotoCollectionViewController.swift in Sources */,
 				24E315B61FA3895700571F4C /* Shapable.swift in Sources */,
-				24E315BC1FA3948700571F4C /* ScenePhotoView.swift in Sources */,
 				24FFC7271FA7653300588ED9 /* MainPhotoView.swift in Sources */,
 				244763A11FA7BC4700FB49E6 /* UIImage+LocalRepository.swift in Sources */,
+				2484C2D51FBA735C002C87C2 /* PotentialSceneCollectionViewLayout.swift in Sources */,
 				244763A31FA7DEF700FB49E6 /* RealmConfig.swift in Sources */,
 				249477BB1FA8F7F6009AAB66 /* MainPhotoTableViewCell.swift in Sources */,
 				244763A51FA7E21100FB49E6 /* URL+filePath.swift in Sources */,

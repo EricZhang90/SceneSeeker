@@ -20,7 +20,10 @@ class AnalysisTableViewController: UITableViewController {
     var realm: Realm!
     
     var localDetector: SceneDetector!
+    var localResult = [Scene]()
+    
     var remoteDetector: SceneDetector!
+    var remoteResult = [Scene]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +40,10 @@ class AnalysisTableViewController: UITableViewController {
     }
     
     func setupUI() {
+        
         makeTransparentTableView()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.rowHeight = UITableViewAutomaticDimension
         
         let image = UIImage(uuid: photo.imageUUID)
         
@@ -50,6 +54,16 @@ class AnalysisTableViewController: UITableViewController {
         remoteDetector = SceneDetector(delegate: self, kind: .internet)
         
         remoteDetector.detectScene(image)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 0 {
+            return UITableViewAutomaticDimension
+        }
+        else {
+            return 180
+        }
     }
 }
 
@@ -89,8 +103,17 @@ extension AnalysisTableViewController {
             return cell
             
         }
+        else if indexPath.section ==  1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: potentialSceneCellIdentifier, for: indexPath) as! PotentialSceneTableViewCell
+            
+            cell.setup(with: localResult)
+            
+            return cell
+        }
         else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: potentialSceneCellIdentifier, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: potentialSceneCellIdentifier, for: indexPath) as! PotentialSceneTableViewCell
+            
+            cell.setup(with: remoteResult)
             
             return cell
         }
@@ -156,6 +179,29 @@ extension AnalysisTableViewController: ImageProcessor {
     
     func processCategories(_ categories: [Scene], kind: SceneDetector.Kind) {
         
+        let indexPath: IndexPath!
+        
+        if kind == .local {
+            localResult = categories
+            
+            indexPath = IndexPath(item: 0, section: 1)
+        }
+        else {
+            remoteResult = categories
+            
+            indexPath = IndexPath(item: 0, section: 2)
+        }
+        
+        DispatchQueue.main.async {
+            // realm has to be run in main thread
+            try! self.realm.write {
+                for cate in categories {
+                    self.photo.scenes.append(cate)
+                }
+            }
+            
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
     
     func handleError(error: GeneralError) {

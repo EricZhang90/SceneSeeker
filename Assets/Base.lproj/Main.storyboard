@@ -52,7 +52,7 @@
                                     <constraint firstItem="xys-DU-Bh9" firstAttribute="centerX" secondItem="W7K-rE-n0r" secondAttribute="centerX" id="zc1-uL-5Wk"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppb-j9-l2H" userLabel="photoView" customClass="ScenePhotoView" customModule="SceneSeeker" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppb-j9-l2H" userLabel="photoView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                                 <subviews>
                                     <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detection" translatesAutoresizingMaskIntoConstraints="NO" id="OLl-jL-ySJ" customClass="MainPhotoView" customModule="SceneSeeker" customModuleProvider="target">
@@ -101,7 +101,7 @@
         <scene sceneID="crC-lC-3dJ">
             <objects>
                 <tableViewController storyboardIdentifier="analysisTableViewController" id="StK-fu-ciR" customClass="AnalysisTableViewController" customModule="SceneSeeker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sGx-rP-1ac">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sGx-rP-1ac">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,24 +158,71 @@
                                     <outlet property="tagsTextView" destination="E36-z2-0SX" id="g7n-Rc-amr"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="potentialSceneTableViewCell" rowHeight="160" id="Tc6-bO-Mcu" customClass="PotentialSceneTableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="potentialSceneTableViewCell" rowHeight="160" id="Tc6-bO-Mcu" customClass="PotentialSceneTableViewCell" customModule="SceneSeeker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="168" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tc6-bO-Mcu" id="pGS-nm-n0S">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uhg-c3-XJz">
-                                            <rect key="frame" x="10" y="0.0" width="355" height="159.5"/>
-                                        </scrollView>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8eS-VZ-56z">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j3N-IT-NcM">
+                                                <size key="itemSize" width="120" height="160"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="potentialSceneCollectionViewCell" id="FXI-7S-r5R" customClass="PotentialSceneCollectionViewCell" customModule="SceneSeeker" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9P-qx-t0z">
+                                                                <rect key="frame" x="5" y="40" width="110" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hkG-WA-ujF">
+                                                                <rect key="frame" x="5" y="45" width="110" height="110"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="hkG-WA-ujF" secondAttribute="height" id="iqU-YT-bGh"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </view>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="hkG-WA-ujF" secondAttribute="bottom" constant="5" id="BRv-MX-KkF"/>
+                                                        <constraint firstItem="hkG-WA-ujF" firstAttribute="top" secondItem="G9P-qx-t0z" secondAttribute="bottom" constant="5" id="BuD-a3-Vxj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hkG-WA-ujF" secondAttribute="trailing" constant="5" id="ddx-zm-7Db"/>
+                                                        <constraint firstItem="hkG-WA-ujF" firstAttribute="leading" secondItem="FXI-7S-r5R" secondAttribute="leading" constant="5" id="eJb-rR-VtN"/>
+                                                        <constraint firstItem="G9P-qx-t0z" firstAttribute="width" secondItem="hkG-WA-ujF" secondAttribute="width" id="jZR-iK-saC"/>
+                                                        <constraint firstItem="G9P-qx-t0z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FXI-7S-r5R" secondAttribute="top" constant="5" id="jgG-wq-jia"/>
+                                                        <constraint firstItem="G9P-qx-t0z" firstAttribute="centerX" secondItem="FXI-7S-r5R" secondAttribute="centerX" id="qjZ-G3-6EP"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="category" destination="G9P-qx-t0z" id="eHB-lA-Mk1"/>
+                                                        <outlet property="imageView" destination="hkG-WA-ujF" id="vpf-tP-8m9"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Uhg-c3-XJz" firstAttribute="leading" secondItem="pGS-nm-n0S" secondAttribute="leading" constant="10" id="RFO-RF-iGk"/>
-                                        <constraint firstItem="Uhg-c3-XJz" firstAttribute="top" secondItem="pGS-nm-n0S" secondAttribute="top" id="XlE-Vm-IVJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="Uhg-c3-XJz" secondAttribute="trailing" constant="10" id="cOU-YM-JkE"/>
-                                        <constraint firstAttribute="bottom" secondItem="Uhg-c3-XJz" secondAttribute="bottom" id="mEa-Jj-Txd"/>
+                                        <constraint firstAttribute="bottom" secondItem="8eS-VZ-56z" secondAttribute="bottom" id="CQc-5n-GjC"/>
+                                        <constraint firstAttribute="trailing" secondItem="8eS-VZ-56z" secondAttribute="trailing" id="EA8-Gf-kNG"/>
+                                        <constraint firstItem="8eS-VZ-56z" firstAttribute="leading" secondItem="pGS-nm-n0S" secondAttribute="leading" id="HGa-5b-6fz"/>
+                                        <constraint firstItem="8eS-VZ-56z" firstAttribute="top" secondItem="pGS-nm-n0S" secondAttribute="top" id="ZUL-0z-G1l"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="potentialSceneCollectionView" destination="8eS-VZ-56z" id="UY6-hC-UnS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

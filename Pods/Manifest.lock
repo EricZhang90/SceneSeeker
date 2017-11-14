@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
+  - lottie-ios (2.1.3)
   - Realm (3.0.1):
     - Realm/Headers (= 3.0.1)
   - Realm/Headers (3.0.1)
@@ -8,13 +9,15 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
+  - lottie-ios
   - RealmSwift (= 3.0.1)
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  lottie-ios: 8c150606598931621e927377f1426d2d3e99282d
   Realm: ba6144c74f835f7497791f6599d63a7755377b83
   RealmSwift: 7d13b1ac4b6022a13f841e3143e7789c9e40ad0d
 
-PODFILE CHECKSUM: 86c2971d75e7399f4e937e192a8586e88f31ed49
+PODFILE CHECKSUM: fe5c2f7a4f9849c330b3b37beb0618fd565dd18a
 
 COCOAPODS: 1.3.1

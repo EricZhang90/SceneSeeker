@@ -8,4 +8,5 @@ target 'SceneSeeker' do
   # Pods for SceneSeeker
   pod 'RealmSwift', ‘3.0.1’
   pod 'Alamofire', '~> 4.5.1’
+  pod 'lottie-ios'
 end

@@ -10,15 +10,26 @@ import UIKit
 
 class PotentialSceneTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var potentialSceneCollectionView: UICollectionView!
+    
+    var scenes = [Scene]()
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        addCollectionView()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setup(with scenes:[Scene]) {
+        
+        self.scenes = scenes
+        
+        potentialSceneCollectionView.reloadData()
     }
-
 }
+
+
+
+

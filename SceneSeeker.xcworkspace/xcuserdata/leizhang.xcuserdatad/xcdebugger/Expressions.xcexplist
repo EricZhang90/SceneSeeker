@@ -3,10 +3,37 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PhotoCollectionViewController.collectionView(_:cellForItemAt:):PhotoCollectionViewController.swift">
+         contextName = "PhotoCollectionViewController.collectionView(_:numberOfItemsInSection:):PhotoCollectionViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "photos[indexPath.row].mainPhotoPath">
+               value = "photos.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PotentialSceneTableViewCell.collectionView(_:cellForItemAt:):PotentialSceneTableViewCell + InternalCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AnalysisTableViewController.processCategories(_:kind:):AnalysisTableViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UIImage.init(uuid:):UIImageManger.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "imagesLocalPath.path">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PotentialSceneTableViewCell.collectionView(_:numberOfItemsInSection:):PotentialSceneTableViewCell + InternalCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scenes.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,26 +49,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PhotoCollectionViewController.collectionView(_:numberOfItemsInSection:):PhotoCollectionViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "photos.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UIImage.init(uuid:):UIImageManger.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "imagesLocalPath.path">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "MainPhotoTableViewCell.setupCell(by:):MainPhotoTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
                value = "photo.tags.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhotoCollectionViewController.collectionView(_:cellForItemAt:):PhotoCollectionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "photos[indexPath.row].mainPhotoPath">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
