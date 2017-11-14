@@ -8,33 +8,29 @@
 
 import UIKit
 import RealmSwift
+import Lottie
 
 class MainPhotoTableViewCell: UITableViewCell, Shapable {
 
     var photo:Photo!
     
     
-    @IBAction func addToFav(_ sender: Any) {
-        
-        let button = sender as! UIButton
-        
-        if photo.isFav {
-            button.setImage(UIImage(named: "unliked"), for: .normal)
-        }
-        else {
-            button.setImage(UIImage(named: "liked"), for: .normal)
-        }
-        
-        let realm = try! Realm()
-        
-        try! realm.write {
-            photo.isFav = !photo.isFav
-        }
-    }
     
     @IBOutlet weak var tagsTextView: UITextView!
-    @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var favArea: UIView!
     @IBOutlet weak var photoView: UIImageView!
+    
+    var favBtn:LOTAnimatedSwitch!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        roundCorner(radius: 10.0)
+        
+        setupTextView()
+        
+        addFavButton()
+    }
     
     func setupCell(by photo: Photo) {
         
@@ -50,23 +46,42 @@ class MainPhotoTableViewCell: UITableViewCell, Shapable {
         photoView.image = UIImage(uuid: photo.imageUUID)
         
         if photo.isFav {
-            favButton.setImage(UIImage(named: "liked"), for: .normal)
+            favBtn.setOn(true, animated: false)
         }
         else {
-            favButton.setImage(UIImage(named: "unliked"), for: .normal)
+            favBtn.setOn(false, animated: false)
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        roundCorner(radius: 10.0)
-        
+    
+    
+    func setupTextView() {
         tagsTextView.delegate = self
         tagsTextView.layer.borderColor = UIColor.lightGray.cgColor
         tagsTextView.layer.borderWidth = 1.0
         tagsTextView.layer.backgroundColor = UIColor.clear.cgColor
         tagsTextView.layer.cornerRadius = 5.0
+    }
+    
+    func addFavButton() {
+        
+        favBtn = LOTAnimatedSwitch.init(named: "TwitterHeart")
+        favBtn.addTarget(self, action: #selector(addToFav(_:)), for: .valueChanged)
+        
+        favBtn.bounds.size.height = 200
+        favBtn.bounds.size.width = 200
+        favBtn.center = favArea.center
+        favArea.backgroundColor = UIColor.clear
+        contentView.addSubview(favBtn)
+    }
+    
+    @objc func addToFav(_ animatedSwitch: LOTAnimatedSwitch) {
+        
+        let realm = try! Realm()
+        
+        try! realm.write {
+            photo.isFav = !photo.isFav
+        }
     }
 }
 

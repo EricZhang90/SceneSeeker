@@ -113,19 +113,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0x-mZ-wd0">
-                                            <rect key="frame" x="335" y="5" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="v0x-mZ-wd0" secondAttribute="height" multiplier="1:1" id="A60-Es-7Go"/>
-                                                <constraint firstAttribute="width" constant="30" id="UCL-mD-nCU"/>
-                                            </constraints>
-                                            <state key="normal" image="unliked"/>
-                                            <connections>
-                                                <action selector="addToFav:" destination="0dh-fL-JtJ" eventType="touchUpInside" id="dXj-kR-x4d"/>
-                                            </connections>
-                                        </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E36-z2-0SX">
-                                            <rect key="frame" x="104.5" y="45" width="252.5" height="84.5"/>
+                                            <rect key="frame" x="99.5" y="50" width="257.5" height="79.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zI1-hu-kPX"/>
@@ -134,26 +123,34 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                         </textView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qx4-lD-4BR">
-                                            <rect key="frame" x="10" y="45" width="84.5" height="84.5"/>
+                                            <rect key="frame" x="10" y="50" width="79.5" height="79.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Qx4-lD-4BR" secondAttribute="height" id="uZF-Hb-xGW"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDN-7z-zrX">
+                                            <rect key="frame" x="325" y="10" width="30" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="hDN-7z-zrX" secondAttribute="height" id="7oi-O5-0D2"/>
+                                                <constraint firstAttribute="width" constant="30" id="m9B-iO-R0N"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="v0x-mZ-wd0" secondAttribute="trailing" constant="10" id="Sgc-CV-O7N"/>
+                                        <constraint firstItem="hDN-7z-zrX" firstAttribute="top" secondItem="IT9-35-Qzp" secondAttribute="top" constant="10" id="1q3-oP-aQQ"/>
+                                        <constraint firstItem="E36-z2-0SX" firstAttribute="top" secondItem="hDN-7z-zrX" secondAttribute="bottom" constant="10" id="KO2-d7-8ID"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="E36-z2-0SX" secondAttribute="trailing" constant="10" id="Xj9-r1-XMs"/>
                                         <constraint firstAttribute="bottom" secondItem="Qx4-lD-4BR" secondAttribute="bottom" constant="10" id="a3h-88-TgN"/>
-                                        <constraint firstItem="v0x-mZ-wd0" firstAttribute="top" secondItem="IT9-35-Qzp" secondAttribute="top" constant="5" id="gWU-tl-3XZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="hDN-7z-zrX" secondAttribute="trailing" constant="20" id="cjX-zG-fLW"/>
                                         <constraint firstItem="E36-z2-0SX" firstAttribute="leading" secondItem="Qx4-lD-4BR" secondAttribute="trailing" constant="10" id="iUQ-Zz-3af"/>
                                         <constraint firstItem="E36-z2-0SX" firstAttribute="height" secondItem="Qx4-lD-4BR" secondAttribute="height" id="m53-NF-xHM"/>
-                                        <constraint firstItem="E36-z2-0SX" firstAttribute="top" secondItem="v0x-mZ-wd0" secondAttribute="bottom" constant="10" id="mOF-bC-lhe"/>
                                         <constraint firstItem="Qx4-lD-4BR" firstAttribute="top" secondItem="E36-z2-0SX" secondAttribute="top" id="w2e-hX-nfu"/>
                                         <constraint firstItem="Qx4-lD-4BR" firstAttribute="leading" secondItem="IT9-35-Qzp" secondAttribute="leading" constant="10" id="xJ4-OR-XkR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="favButton" destination="v0x-mZ-wd0" id="egF-bF-bIy"/>
+                                    <outlet property="favArea" destination="hDN-7z-zrX" id="HHo-ix-UKU"/>
                                     <outlet property="photoView" destination="Qx4-lD-4BR" id="wO8-Fo-BKx"/>
                                     <outlet property="tagsTextView" destination="E36-z2-0SX" id="g7n-Rc-amr"/>
                                 </connections>
@@ -182,7 +179,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9P-qx-t0z">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9P-qx-t0z">
                                                                 <rect key="frame" x="5" y="40" width="110" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <nil key="textColor"/>
@@ -385,6 +382,5 @@
         <image name="background2" width="274" height="512"/>
         <image name="camera_btn" width="150" height="126"/>
         <image name="detection" width="7027" height="4701"/>
-        <image name="unliked" width="512" height="512"/>
     </resources>
 </document>
