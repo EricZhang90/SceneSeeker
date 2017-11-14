@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class PotentialSceneCollectionViewCell: UICollectionViewCell {
     
@@ -16,6 +17,8 @@ class PotentialSceneCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    var loadingAnimation:LOTAnimationView?
+    
     func setup(by scene: Scene) {
         
         self.scene = scene
@@ -23,10 +26,30 @@ class PotentialSceneCollectionViewCell: UICollectionViewCell {
         category.text = scene.identifier
         
         if let uuid = scene.similarScenePaths.first {
+            
+            if let loadingAnimation = loadingAnimation {
+                loadingAnimation.stop()
+                loadingAnimation.isHidden = true
+                loadingAnimation.removeFromSuperview()
+            }
+            
             imageView.image = UIImage(uuid: uuid)
         }
         else {
-            imageView.image = UIImage(named: "unliked")
+            if loadingAnimation == nil {
+                
+                loadingAnimation = LOTAnimationView(name: "loading")
+                loadingAnimation?.loopAnimation = true
+                loadingAnimation!.frame = CGRect(
+                    x: 0,
+                    y: 0,
+                    width: imageView.frame.size.width,
+                    height: imageView.frame.size.height)
+                imageView.addSubview(loadingAnimation!)
+                
+            }
+            loadingAnimation!.isHidden = false
+            loadingAnimation!.play()
         }
         
         contentView.layer.cornerRadius = 5.0

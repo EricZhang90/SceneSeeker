@@ -163,7 +163,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8eS-VZ-56z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
+                                            <rect key="frame" x="10" y="0.0" width="365" height="149.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j3N-IT-NcM">
                                                 <size key="itemSize" width="120" height="160"/>
@@ -211,9 +211,9 @@
                                         </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="8eS-VZ-56z" secondAttribute="bottom" id="CQc-5n-GjC"/>
+                                        <constraint firstAttribute="bottom" secondItem="8eS-VZ-56z" secondAttribute="bottom" constant="10" id="CQc-5n-GjC"/>
                                         <constraint firstAttribute="trailing" secondItem="8eS-VZ-56z" secondAttribute="trailing" id="EA8-Gf-kNG"/>
-                                        <constraint firstItem="8eS-VZ-56z" firstAttribute="leading" secondItem="pGS-nm-n0S" secondAttribute="leading" id="HGa-5b-6fz"/>
+                                        <constraint firstItem="8eS-VZ-56z" firstAttribute="leading" secondItem="pGS-nm-n0S" secondAttribute="leading" constant="10" id="HGa-5b-6fz"/>
                                         <constraint firstItem="8eS-VZ-56z" firstAttribute="top" secondItem="pGS-nm-n0S" secondAttribute="top" id="ZUL-0z-G1l"/>
                                     </constraints>
                                 </tableViewCellContentView>

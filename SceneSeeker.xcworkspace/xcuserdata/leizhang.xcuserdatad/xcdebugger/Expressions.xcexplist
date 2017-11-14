@@ -19,6 +19,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "PotentialSceneCollectionViewCell.setup(by:):PotentialSceneCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scene.similarScenePaths.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in AnalysisTableViewController.processCategories(_:kind:):AnalysisTableViewController.swift">
       </ContextState>
       <ContextState
@@ -41,10 +49,10 @@
          contextName = "static UIImageManger.loadImageFromFileSystem(filePath:):UIImageManger.swift">
          <PersistentStrings>
             <PersistentString
-               value = "filePath">
+               value = "print(filePath)">
             </PersistentString>
             <PersistentString
-               value = "print(filePath)">
+               value = "filePath">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
